@@ -18,6 +18,10 @@ gem 'slim'
 gem 'unicorn'
 gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 gem 'paratrooper'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'stripe'
+gem 'figaro'
 
 group :development do
   gem 'sqlite3'
