@@ -1,5 +1,6 @@
 require 'spec_helper'
 
+
 describe UsersController do
   describe "Get new" do
     it "sets @users" do
@@ -10,10 +11,14 @@ describe UsersController do
 
   describe "POST create" do
     context "with valid input" do
-      
-      before { post :create, user: Fabricate.attributes_for(:user) }
-    
-      it "creates the user" do 
+      before do
+        StripeWrapper::Charge.stub(:create)
+        post :create, user: Fabricate.attributes_for(:user)
+      end
+
+      it "creates the user" do
+        #StripeWrapper::Charge.stub(:create)
+        #post :create, user: Fabricate.attributes_for(:user)
         expect(User.count).to eq(1)
       end
 
@@ -60,6 +65,8 @@ describe UsersController do
     end
 
     context "sending emails" do
+
+      before {StripeWrapper::Charge.stub(:create)}
       after { ActionMailer::Base.deliveries.clear }
 
       it "sends out email to the user with valid inputs" do

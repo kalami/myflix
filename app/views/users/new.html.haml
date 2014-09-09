@@ -14,19 +14,19 @@ Stripe.setPublishableKey("#{ENV['STRIPE_PUBLISHABLE_KEY']}");
         %h1 Register
         %fieldset
           = f.email_field :email, label: "Email Address"
-          = f.password_field :password
+          = f.password_field :password, label: "Password"
           = f.text_field :full_name, label: "Full Name"
           = hidden_field_tag :invitation_token, @invitation_token
         %fieldset.credit_card
           %span.payment-errors
           .form-group
-            %label.control-label.col-sm-2 Credit Card Number
+            %label.control-label.col-sm-2(for="credit-card-number") Credit Card Number
             .col-sm-6
-              %input.form-control(type="text" data-stripe="number")
+              %input.form-control#credit-card-number(type="text" data-stripe="number")
           .form-group
-            %label.control-label.col-sm-2 Security Code
+            %label.control-label.col-sm-2(for="security-code") Security Code
             .col-sm-6
-              %input.form-control(type="text" data-stripe="cvc")
+              %input.form-control#security-code(type="text" data-stripe="cvc")
           .form-group
             %label.control-label.col-sm-2 Expiration
             .col-sm-3
