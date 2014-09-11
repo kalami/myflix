@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.stripe.com/v1/customers
+    uri: https://api.stripe.com/v1/tokens
     body:
       encoding: US-ASCII
-      string: card=tok_14beSSLYcdnh37DjXEoPgV5H&email=john%40example.com&plan=base
+      string: card[number]=4242424242424242&card[exp_month]=9&card[exp_year]=2019&card[cvc]=314
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -22,7 +22,7 @@ http_interactions:
         joshuas-mbp.home 13.3.0 Darwin Kernel Version 13.3.0: Tue Jun  3 21:27:35
         PDT 2014; root:xnu-2422.110.17~1/RELEASE_X86_64 x86_64"}'
       Content-Length:
-      - '68'
+      - '81'
   response:
     status:
       code: 200
@@ -31,11 +31,91 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Thu, 11 Sep 2014 20:46:25 GMT
+      - Thu, 11 Sep 2014 20:46:00 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
-      - '2226'
+      - '596'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST, HEAD, OPTIONS, DELETE
+      Access-Control-Max-Age:
+      - '300'
+      Cache-Control:
+      - no-cache, no-store
+      Stripe-Version:
+      - '2014-08-20'
+      Strict-Transport-Security:
+      - max-age=31556926; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: |
+        {
+          "id": "tok_14beS4LYcdnh37Dj1f1Xz3xF",
+          "livemode": false,
+          "created": 1410468360,
+          "used": false,
+          "object": "token",
+          "type": "card",
+          "card": {
+            "id": "card_14beS4LYcdnh37DjEF8k8NjQ",
+            "object": "card",
+            "last4": "4242",
+            "brand": "Visa",
+            "funding": "credit",
+            "exp_month": 9,
+            "exp_year": 2019,
+            "fingerprint": "bWHi70YuX8gdz3kp",
+            "country": "US",
+            "name": null,
+            "address_line1": null,
+            "address_line2": null,
+            "address_city": null,
+            "address_state": null,
+            "address_zip": null,
+            "address_country": null,
+            "customer": null
+          }
+        }
+    http_version: 
+  recorded_at: Thu, 11 Sep 2014 20:46:00 GMT
+- request:
+    method: post
+    uri: https://api.stripe.com/v1/customers
+    body:
+      encoding: US-ASCII
+      string: card=tok_14beS4LYcdnh37Dj1f1Xz3xF&email=sabryna_schneider%40hyatt.com&plan=base
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Stripe/v1 RubyBindings/1.15.0
+      Authorization:
+      - Bearer sk_test_9oE8bTWTjqMGMaYlLrhEZe13
+      Content-Type:
+      - application/x-www-form-urlencoded
+      X-Stripe-Client-User-Agent:
+      - '{"bindings_version":"1.15.0","lang":"ruby","lang_version":"2.1.1 p76 (2014-02-24)","platform":"x86_64-darwin12.0","publisher":"stripe","uname":"Darwin
+        joshuas-mbp.home 13.3.0 Darwin Kernel Version 13.3.0: Tue Jun  3 21:27:35
+        PDT 2014; root:xnu-2422.110.17~1/RELEASE_X86_64 x86_64"}'
+      Content-Length:
+      - '79'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 11 Sep 2014 20:46:00 GMT
+      Content-Type:
+      - application/json;charset=utf-8
+      Content-Length:
+      - '2237'
       Access-Control-Allow-Credentials:
       - 'true'
       Access-Control-Allow-Methods:
@@ -53,21 +133,21 @@ http_interactions:
       string: |
         {
           "object": "customer",
-          "created": 1410468384,
-          "id": "cus_4lAotz1KjtnE3i",
+          "created": 1410468360,
+          "id": "cus_4lAnKrfb4FKkpi",
           "livemode": false,
           "description": null,
-          "email": "john@example.com",
+          "email": "sabryna_schneider@hyatt.com",
           "delinquent": false,
           "metadata": {},
           "subscriptions": {
             "object": "list",
             "total_count": 1,
             "has_more": false,
-            "url": "/v1/customers/cus_4lAotz1KjtnE3i/subscriptions",
+            "url": "/v1/customers/cus_4lAnKrfb4FKkpi/subscriptions",
             "data": [
               {
-                "id": "sub_4lAoEa8dIA2Z96",
+                "id": "sub_4lAnnMhTGf6CwH",
                 "plan": {
                   "interval": "month",
                   "name": "base",
@@ -83,15 +163,15 @@ http_interactions:
                   "statement_description": "jhunter-myflix"
                 },
                 "object": "subscription",
-                "start": 1410468384,
+                "start": 1410468360,
                 "status": "trialing",
-                "customer": "cus_4lAotz1KjtnE3i",
+                "customer": "cus_4lAnKrfb4FKkpi",
                 "cancel_at_period_end": false,
-                "current_period_start": 1410468384,
-                "current_period_end": 1410727584,
+                "current_period_start": 1410468360,
+                "current_period_end": 1410727560,
                 "ended_at": null,
-                "trial_start": 1410468384,
-                "trial_end": 1410727584,
+                "trial_start": 1410468360,
+                "trial_end": 1410727560,
                 "canceled_at": null,
                 "quantity": 1,
                 "application_fee_percent": null,
@@ -107,16 +187,16 @@ http_interactions:
             "object": "list",
             "total_count": 1,
             "has_more": false,
-            "url": "/v1/customers/cus_4lAotz1KjtnE3i/cards",
+            "url": "/v1/customers/cus_4lAnKrfb4FKkpi/cards",
             "data": [
               {
-                "id": "card_14beSSLYcdnh37Djy2WThf45",
+                "id": "card_14beS4LYcdnh37DjEF8k8NjQ",
                 "object": "card",
                 "last4": "4242",
                 "brand": "Visa",
                 "funding": "credit",
-                "exp_month": 7,
-                "exp_year": 2018,
+                "exp_month": 9,
+                "exp_year": 2019,
                 "fingerprint": "bWHi70YuX8gdz3kp",
                 "country": "US",
                 "name": null,
@@ -129,12 +209,12 @@ http_interactions:
                 "cvc_check": "pass",
                 "address_line1_check": null,
                 "address_zip_check": null,
-                "customer": "cus_4lAotz1KjtnE3i"
+                "customer": "cus_4lAnKrfb4FKkpi"
               }
             ]
           },
-          "default_card": "card_14beSSLYcdnh37Djy2WThf45"
+          "default_card": "card_14beS4LYcdnh37DjEF8k8NjQ"
         }
     http_version: 
-  recorded_at: Thu, 11 Sep 2014 20:46:24 GMT
+  recorded_at: Thu, 11 Sep 2014 20:46:00 GMT
 recorded_with: VCR 2.9.2

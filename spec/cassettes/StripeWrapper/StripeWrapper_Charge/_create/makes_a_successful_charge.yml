@@ -31,7 +31,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sat, 06 Sep 2014 21:36:26 GMT
+      - Thu, 11 Sep 2014 20:45:57 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -52,14 +52,14 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "tok_14Zqr8LYcdnh37Djfky4A43c",
+          "id": "tok_14beS1LYcdnh37Djuas9k2Ta",
           "livemode": false,
-          "created": 1410039386,
+          "created": 1410468357,
           "used": false,
           "object": "token",
           "type": "card",
           "card": {
-            "id": "card_14Zqr8LYcdnh37DjrjcVVaYC",
+            "id": "card_14beS1LYcdnh37Dj5xW0QpP8",
             "object": "card",
             "last4": "4242",
             "brand": "Visa",
@@ -79,13 +79,13 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Sat, 06 Sep 2014 21:36:26 GMT
+  recorded_at: Thu, 11 Sep 2014 20:45:57 GMT
 - request:
     method: post
     uri: https://api.stripe.com/v1/charges
     body:
       encoding: US-ASCII
-      string: amount=999&currency=usd&card=tok_14Zqr8LYcdnh37Djfky4A43c&description=a%20valid%20charge
+      string: amount=999&currency=usd&card=tok_14beS1LYcdnh37Djuas9k2Ta&description=a%20valid%20charge
     headers:
       Accept:
       - "*/*; q=0.5, application/xml"
@@ -111,7 +111,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sat, 06 Sep 2014 21:36:26 GMT
+      - Thu, 11 Sep 2014 20:45:57 GMT
       Content-Type:
       - application/json;charset=utf-8
       Content-Length:
@@ -132,16 +132,16 @@ http_interactions:
       encoding: UTF-8
       string: |
         {
-          "id": "ch_14Zqr8LYcdnh37DjKntxpWBx",
+          "id": "ch_14beS1LYcdnh37Dj9OA4NMWc",
           "object": "charge",
-          "created": 1410039386,
+          "created": 1410468357,
           "livemode": false,
           "paid": true,
           "amount": 999,
           "currency": "usd",
           "refunded": false,
           "card": {
-            "id": "card_14Zqr8LYcdnh37DjrjcVVaYC",
+            "id": "card_14beS1LYcdnh37Dj5xW0QpP8",
             "object": "card",
             "last4": "4242",
             "brand": "Visa",
@@ -167,10 +167,10 @@ http_interactions:
             "object": "list",
             "total_count": 0,
             "has_more": false,
-            "url": "/v1/charges/ch_14Zqr8LYcdnh37DjKntxpWBx/refunds",
+            "url": "/v1/charges/ch_14beS1LYcdnh37Dj9OA4NMWc/refunds",
             "data": []
           },
-          "balance_transaction": "txn_14Zqr8LYcdnh37DjxUfPyl7p",
+          "balance_transaction": "txn_14beS1LYcdnh37DjdNASiSAt",
           "failure_message": null,
           "failure_code": null,
           "amount_refunded": 0,
@@ -183,5 +183,5 @@ http_interactions:
           "receipt_email": null
         }
     http_version: 
-  recorded_at: Sat, 06 Sep 2014 21:36:26 GMT
+  recorded_at: Thu, 11 Sep 2014 20:45:57 GMT
 recorded_with: VCR 2.9.2
