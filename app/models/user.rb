@@ -31,4 +31,8 @@ def normalize_queue_item_positions
   def follows?(another_user)
     following_relationships.map(&:leader).include?(another_user)
   end
+
+  def deactivate!
+    update_column(:active, false)
+  end
 end

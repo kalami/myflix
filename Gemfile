@@ -21,6 +21,7 @@ gem 'paratrooper'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'stripe'
+gem 'stripe_event'
 gem 'figaro'
 gem 'draper'
 

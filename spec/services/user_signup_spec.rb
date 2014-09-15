@@ -4,7 +4,7 @@ describe UserSignup do
   describe "#sign_up" do
     context "valid personal info and valid card" do
       after { ActionMailer::Base.deliveries.clear }
-      let(:customer) { double(:customer, successful?: true)}
+      let(:customer) { double(:customer, successful?: true, customer_token: "abcdefg")}
       before {StripeWrapper::Customer.should_receive(:create).and_return(customer)}
 
       it "creates the user" do
@@ -18,6 +18,11 @@ describe UserSignup do
         UserSignup.new(Fabricate.build(:user, email: 'joe@example.com', password: "password", full_name: "Joe Doe")).sign_up("some_stripe_token",invitation.token)
         joe = User.where(email: 'joe@example.com').first
         expect(joe.follows?(alice)).to be_truthy
+      end
+
+      it "stores the customer token from stripe" do
+        UserSignup.new(Fabricate.build(:user)).sign_up("some_stripe_token", nil)
+        expect(User.first.customer_token).to eq("abcdefg")
       end
 
       it "makes the inviter follow the user" do
