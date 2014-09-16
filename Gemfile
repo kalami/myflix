@@ -19,6 +19,7 @@ gem 'unicorn'
 gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 gem 'paratrooper'
 gem 'carrierwave'
+gem 'fog'
 gem 'mini_magick'
 gem 'stripe'
 gem 'stripe_event'

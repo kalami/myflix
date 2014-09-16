@@ -2,13 +2,14 @@ CarrierWave.configure do |config|
   if Rails.env.staging? || Rails.env.production?
     config.storage = :fog
     config.fog_credentials = {
-        :provider               => 'AWS',                        # required
-        :aws_access_key_id      => 'xxx',                        # required
-        :aws_secret_access_key  => 'yyy',                        # required
+        :provider               => 'AWS',
+        :aws_access_key_id      => ENV['AWS_ACCESS_KEY_ID'],
+        :aws_secret_access_key  => ENV[AWS_SECRET_ACCESS_KEY],
         }
-    config.fog_directory  = 'name_of_directory'                     # required
+    config.fog_directory  = 'jh-myflix'
   else
     config.storage = :file
     config.enable_processing = Rails.env.development?
+    config.storage :fog
   end
 end

@@ -2,7 +2,7 @@
   .container
     .row
       .video_large_cover.col-sm-7.col-sm-offset-1
-        %img(src="#{@video.large_cover_url}")
+        %img(src="#{@video.large_cover}")
       .video_info.col-sm-3
         %header
           %h3= @video.title
@@ -13,15 +13,21 @@
           %a.btn.btn-primary(href="#{@video.video_url}") Watch Now
           = link_to "+ My Queue", queue_items_path(video_id: @video.id), method: :post, class: 'btn' unless current_user.queued_video?(@video)
 
-%section.reviews.container
+%section.reviews.container#reviews
   .row
     .col-sm-10.col-sm-offset-1
-    = form_for [@video, Review.new] do |f|
-      %fieldset
-        %label Rate this video
-        = f.select :rating, options_for_video_reviews
-        %label Write Review
-        = f.text_area :content, rows: 6, class: "span6"
+      = form_for [@video, Review.new] do |f|
+        %fieldset
+          .form-group
+            = f.label :rating, "Rate this video"
+            .row
+              .col-sm-3
+                = f.select :rating, options_for_video_reviews
+          .form-group
+            = f.label :body, "Write Review"
+            .row
+              .col-sm-8
+                = f.text_area :content, rows: 6, class: "form-control"
       %fieldset.form-group.actions.clearfix
         %input(type="submit" value="Submit" class="btn")
         = link_to "Cancel", @video
