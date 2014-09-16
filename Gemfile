@@ -25,7 +25,7 @@ gem 'stripe'
 gem 'stripe_event'
 gem 'figaro'
 gem 'draper'
-gem 'rails_12factor'
+
 
 group :development do
   gem 'sqlite3'
@@ -52,7 +52,8 @@ group :test do
   gem 'selenium-webdriver'
 end
 
-group :production do
+group group :production, :staging do
   gem 'pg'
+  gem 'rails_12factor'
 end
 
