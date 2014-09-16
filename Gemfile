@@ -25,6 +25,7 @@ gem 'stripe'
 gem 'stripe_event'
 gem 'figaro'
 gem 'draper'
+gem 'rails_12factor'
 
 group :development do
   gem 'sqlite3'
@@ -34,6 +35,7 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem 'letter_opener'
+  gem 'rails_12factor'
 end
 
 group :development, :test do
@@ -53,6 +55,5 @@ end
 
 group :production do
   gem 'pg'
-  gem 'rails_12factor'
 end
 
