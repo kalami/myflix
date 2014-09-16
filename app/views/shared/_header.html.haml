@@ -6,7 +6,7 @@
       %li= link_to "Videos", home_path
       %li= link_to "My Queue", my_queue_path
       %li= link_to "People", people_path
-    = form_tag search_videos_path, class: 'col-md-5 for-search' do
+    = form_tag search_videos_path, class: 'col-md-5 navbar-form for-search' do
       .form-group
         = text_field_tag :search_string, nil, class: 'form-control', placeholder: 'Search for videos here'
         = submit_tag 'Search', class: 'button btn btn-default'
