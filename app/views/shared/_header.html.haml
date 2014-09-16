@@ -6,10 +6,10 @@
       %li= link_to "Videos", home_path
       %li= link_to "My Queue", my_queue_path
       %li= link_to "People", people_path
-    = form_tag search_videos_path, class: "col-md-5 for-search" do
+    = form_tag search_videos_path, class: 'col-md-5 for-search' do
       .form-group
-      %input.search-query(name="search_term" type="text" placeholder="Search for videos here")
-      %button.btn.btn-default(type="submit") Search
+        = text_field_tag :search_string, nil, class: 'form-control', placeholder: 'Search for videos here'
+        = submit_tag 'Search', class: 'button btn btn-default'
     #user_links.pull-right
       %ul
         %li.dropdown
@@ -18,8 +18,9 @@
             %b.caret
           %ul.dropdown-menu(role="menu" aria-labelledby="dlabel")
             %li
-              = link_to "Invite a friend", new_invitation_path
-              %a(href="#") "Account", edit_user_path(current_user)
-              %a(href="#") Plan and Billing
-              = link_to "Sign Out", sign_out_path
-          
+              = link_to 'Invite a Friend', new_invitation_path
+              = link_to 'Admin Dashboard', admin_payments_path if current_user.admin?
+              = link_to 'Account', edit_user_path(current_user)
+              = link_to 'Plan and Billing', billing_path
+              = link_to 'Sign Out', sign_out_path
+

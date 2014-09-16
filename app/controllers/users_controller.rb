@@ -21,6 +21,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def new_with_invitation_token
     invitation = Invitation.where(token: params[:token]).first
     if invitation
@@ -30,6 +34,12 @@ class UsersController < ApplicationController
     else
       redirect_to expired_token_path
     end
+  end
+
+  def deactivate
+    current_user.deactivate!
+    flash[:success] = "Your account has been deactivated"
+    redirect_to sign_out_path
   end
 
   private
